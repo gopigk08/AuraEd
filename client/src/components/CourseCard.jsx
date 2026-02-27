@@ -18,10 +18,11 @@ const CourseCard = ({ course }) => {
             }}>
                 <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
                     <img
-                        src={course.thumbnail.startsWith('http://localhost') ? course.thumbnail.replace('localhost', window.location.hostname) : course.thumbnail.startsWith('http') ? course.thumbnail : `http://${window.location.hostname}:5000${course.thumbnail}`}
+                        src={course.thumbnail ? (course.thumbnail.startsWith('http') ? course.thumbnail : `${import.meta.env.VITE_SERVER_URL || `http://${window.location.hostname}:5000`}${course.thumbnail}`) : '/placeholder-course.jpg'}
                         alt={course.title}
                         className="course-card-img"
                         style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)' }}
+                        onError={(e) => { e.target.src = '/placeholder-course.jpg'; }}
                     />
                     <div style={{
                         position: 'absolute', top: '10px', right: '10px',

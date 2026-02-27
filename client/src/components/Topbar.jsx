@@ -272,7 +272,7 @@ const Topbar = ({ onMenuClick }) => {
                                         border: '1px solid var(--border)'
                                     }}>
                                         <img
-                                            src={course.thumbnail ? (course.thumbnail.startsWith('http://localhost') ? course.thumbnail.replace('localhost', window.location.hostname) : course.thumbnail.startsWith('http') ? course.thumbnail : `http://${window.location.hostname}:5000${course.thumbnail}`) : '/placeholder-course.jpg'}
+                                            src={course.thumbnail ? (course.thumbnail.startsWith('http') ? course.thumbnail : `${import.meta.env.VITE_SERVER_URL || `http://${window.location.hostname}:5000`}${course.thumbnail}`) : '/placeholder-course.jpg'}
                                             alt=""
                                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                             onError={(e) => { e.target.src = '/placeholder-course.jpg'; }}
@@ -479,7 +479,7 @@ const Topbar = ({ onMenuClick }) => {
                                                                 >
                                                                     <div style={{ width: '40px', height: '40px', borderRadius: '4px', overflow: 'hidden', flexShrink: 0 }}>
                                                                         <img
-                                                                            src={course.thumbnail ? (course.thumbnail.startsWith('http') ? course.thumbnail : `http://${window.location.hostname}:5000${course.thumbnail}`) : '/placeholder-course.jpg'}
+                                                                            src={course.thumbnail ? (course.thumbnail.startsWith('http') ? course.thumbnail : `${import.meta.env.VITE_SERVER_URL || `http://${window.location.hostname}:5000`}${course.thumbnail}`) : '/placeholder-course.jpg'}
                                                                             alt=""
                                                                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                                                             onError={(e) => { e.target.src = '/placeholder-course.jpg'; }}

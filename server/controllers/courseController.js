@@ -5,7 +5,7 @@ const Course = require('../models/Course');
 // @access  Public
 const getCourses = async (req, res) => {
     try {
-        const courses = await Course.find({ published: true });
+        const courses = await Course.find({ published: true }).sort({ createdAt: -1 });
         res.json(courses);
     } catch (error) {
         res.status(500).json({ message: error.message });
@@ -17,7 +17,7 @@ const getCourses = async (req, res) => {
 // @access  Private/Admin
 const getAllCoursesAdmin = async (req, res) => {
     try {
-        const courses = await Course.find({});
+        const courses = await Course.find({}).sort({ createdAt: -1 });
         res.json(courses);
     } catch (error) {
         res.status(500).json({ message: error.message });

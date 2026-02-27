@@ -3,6 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import api from '../utils/api';
 import { PlayCircle, BookOpen, Award, Clock, ArrowRight } from 'lucide-react';
+import { getImageUrl } from '../utils/getImageUrl';
 import { toast } from 'react-hot-toast';
 
 const StudentDashboard = () => {
@@ -106,7 +107,7 @@ const StudentDashboard = () => {
                         }}></div>
 
                         <img
-                            src={continueCourse.thumbnail}
+                            src={getImageUrl(continueCourse.thumbnail)}
                             alt={continueCourse.title}
                             style={{
                                 width: '100%',
@@ -168,7 +169,7 @@ const StudentDashboard = () => {
                             >
                                 <div style={{ position: 'relative', paddingTop: '56.25%' }}>
                                     <img
-                                        src={course.thumbnail}
+                                        src={getImageUrl(course.thumbnail)}
                                         alt={course.title}
                                         className="course-card-img"
                                         style={{

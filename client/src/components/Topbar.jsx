@@ -6,6 +6,7 @@ import { useAuth } from '../context/AuthContext';
 import { useLayout } from '../context/LayoutContext';
 import api from '../utils/api';
 import { getGravatarUrl } from '../utils/gravatar';
+import { getImageUrl } from '../utils/getImageUrl';
 
 const Topbar = ({ onMenuClick }) => {
     const { theme, toggleTheme } = useTheme();
@@ -272,7 +273,7 @@ const Topbar = ({ onMenuClick }) => {
                                         border: '1px solid var(--border)'
                                     }}>
                                         <img
-                                            src={course.thumbnail ? (course.thumbnail.startsWith('http') ? course.thumbnail : `${import.meta.env.VITE_SERVER_URL || `http://${window.location.hostname}:5000`}${course.thumbnail}`) : '/placeholder-course.jpg'}
+                                            src={getImageUrl(course.thumbnail)}
                                             alt=""
                                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                             onError={(e) => { e.target.src = '/placeholder-course.jpg'; }}
@@ -479,7 +480,7 @@ const Topbar = ({ onMenuClick }) => {
                                                                 >
                                                                     <div style={{ width: '40px', height: '40px', borderRadius: '4px', overflow: 'hidden', flexShrink: 0 }}>
                                                                         <img
-                                                                            src={course.thumbnail ? (course.thumbnail.startsWith('http') ? course.thumbnail : `${import.meta.env.VITE_SERVER_URL || `http://${window.location.hostname}:5000`}${course.thumbnail}`) : '/placeholder-course.jpg'}
+                                                                            src={getImageUrl(course.thumbnail)}
                                                                             alt=""
                                                                             style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                                                                             onError={(e) => { e.target.src = '/placeholder-course.jpg'; }}

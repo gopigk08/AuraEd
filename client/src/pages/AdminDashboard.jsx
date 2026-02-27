@@ -3,6 +3,7 @@ import api from '../utils/api';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { Plus, Edit, Trash, ChevronDown, ChevronUp, Video, Bell, Send, Timer, Hammer, BookOpen, Settings, Users, Ticket, CreditCard } from 'lucide-react';
+import { getImageUrl } from '../utils/getImageUrl';
 
 const AdminDashboard = () => {
     const [courses, setCourses] = useState([]);
@@ -665,7 +666,7 @@ const AdminDashboard = () => {
                                         {courses.map(course => (
                                             <div key={course._id} style={{ background: 'var(--surface)', padding: '1rem', borderRadius: '8px', boxShadow: '0 2px 5px rgba(0,0,0,0.1)', border: '1px solid var(--border)' }}>
                                                 <img
-                                                    src={course.thumbnail ? (course.thumbnail.startsWith('http') ? course.thumbnail : `${import.meta.env.VITE_SERVER_URL || `http://${window.location.hostname}:5000`}${course.thumbnail}`) : '/placeholder-course.jpg'}
+                                                    src={getImageUrl(course.thumbnail)}
 
                                                     alt={course.title}
                                                     style={{ width: '100%', height: '120px', objectFit: 'cover', borderRadius: '6px', marginBottom: '0.8rem' }}
@@ -1115,7 +1116,7 @@ const AdminDashboard = () => {
                                                                 style={{ cursor: 'pointer' }}
                                                             />
                                                             <img
-                                                                src={course.thumbnail ? (course.thumbnail.startsWith('http') ? course.thumbnail : `${import.meta.env.VITE_SERVER_URL || `http://${window.location.hostname}:5000`}${course.thumbnail}`) : '/placeholder-course.jpg'}
+                                                                src={getImageUrl(course.thumbnail)}
 
                                                                 alt=""
                                                                 style={{ width: '40px', height: '40px', objectFit: 'cover', borderRadius: '4px' }}
@@ -1163,7 +1164,7 @@ const AdminDashboard = () => {
                                                             <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255,255,255,0.05)', padding: '0.25rem 0.5rem', borderRadius: '4px', border: '1px solid var(--border)' }}>
                                                                 {course.thumbnail && (
                                                                     <img
-                                                                        src={course.thumbnail ? (course.thumbnail.startsWith('http') ? course.thumbnail : `${import.meta.env.VITE_SERVER_URL || `http://${window.location.hostname}:5000`}${course.thumbnail}`) : '/placeholder-course.jpg'}
+                                                                        src={getImageUrl(course.thumbnail)}
 
                                                                         alt=""
                                                                         style={{ width: '24px', height: '24px', borderRadius: '4px', objectFit: 'cover' }}

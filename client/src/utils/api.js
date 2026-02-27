@@ -118,7 +118,9 @@ api.interceptors.response.use(
                 // Refresh token also expired → force logout
                 localStorage.removeItem('token');
                 localStorage.removeItem('user');
-                window.location.href = '/login';
+                if (window.location.pathname !== '/login' && window.location.pathname !== '/signup') {
+                    window.location.href = '/login';
+                }
 
                 return Promise.reject(refreshError);
             } finally {

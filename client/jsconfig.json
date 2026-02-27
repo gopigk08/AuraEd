@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "jsx": "react-jsx",
+        "target": "es2020",
+        "moduleResolution": "bundler"
+    },
+    "include": [
+        "src/**/*",
+        "vite.config.js",
+        "eslint.config.js"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist",
+        "build"
+    ]
+}

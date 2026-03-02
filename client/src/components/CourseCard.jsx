@@ -17,7 +17,7 @@ const CourseCard = ({ course }) => {
                 position: 'relative',
                 border: '1px solid var(--border)'
             }}>
-                <div style={{ position: 'relative', height: '200px', overflow: 'hidden' }}>
+                <div style={{ position: 'relative', aspectRatio: '16/9', overflow: 'hidden' }}>
                     <img
                         src={getImageUrl(course.thumbnail)}
                         alt={course.title}

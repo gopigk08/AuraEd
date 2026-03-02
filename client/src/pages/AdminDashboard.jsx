@@ -1437,7 +1437,7 @@ const AdminDashboard = () => {
                                                         </div>
                                                     </div>
                                                     <div style={{ flex: '0 0 auto', textAlign: 'left', minWidth: '150px' }}>
-                                                        <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block' }}>Join: {new Date(user.createdAt).toLocaleDateString()}</span>
+                                                        <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block' }}>Join: {new Date(user.createdAt).toLocaleString()}</span>
                                                         <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)', display: 'block', marginTop: '0.2rem' }}>
                                                             Last Login: {
                                                                 user.activeSessions && user.activeSessions.length > 0

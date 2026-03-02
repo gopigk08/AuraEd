@@ -74,7 +74,7 @@ const Login = () => {
             } else if (error.code === 'auth/wrong-password') {
                 toast.error('Incorrect password. Please try again.');
             } else {
-                toast.error(error.message || 'Login failed');
+                toast.error(error.response?.data?.error || error.response?.data?.message || error.message || 'Login failed');
             }
         } finally {
             setIsLoading(false);
@@ -127,7 +127,7 @@ const Login = () => {
                 await logout();
                 navigate('/');
             } else {
-                toast.error(error.message || 'Google login failed');
+                toast.error(error.response?.data?.error || error.response?.data?.message || error.message || 'Google login failed');
             }
         }
     };

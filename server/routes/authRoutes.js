@@ -45,7 +45,9 @@ router.post('/sync', async (req, res) => {
         let user = await User.findOne({ uid });
 
         if (!user) {
-            user = await User.findOne({ email });
+            if (email) {
+                user = await User.findOne({ email });
+            }
             if (user) {
                 // Link existing email-based account to new provider UID
                 user.uid = uid;
@@ -55,8 +57,8 @@ router.post('/sync', async (req, res) => {
             } else {
                 user = await User.create({
                     uid,
-                    email,
-                    name: name || email.split('@')[0],
+                    email: email || `${uid}@noemail.com`,
+                    name: name || (email ? email.split('@')[0] : 'User'),
                     picture,
                     role: 'user',
                 });
